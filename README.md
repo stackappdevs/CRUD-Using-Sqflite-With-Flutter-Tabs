@@ -1,7 +1,6 @@
-# CRUD Using Sqflite With Flutter Tabs
+# CRUD-Using-Sqflite-With-Flutter-Tabs
+A sample application for users to save, edit and delete records using local database sqflite.
 
-
-A new Flutter application.
 
 ## Getting Started
 
