@@ -1,31 +1,17 @@
 import 'dart:async';
 
-import 'package:demoapp/screen/data_model.dart';
+import 'package:demoapp/constants/string_constrants.dart';
+import 'package:demoapp/model/user_item.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 
 
-
 class DBHelper{
 
-    static Database? db;
-    static final _dbName = "UserList.db";
-    static final databaseVersion = 1;
-    static final table = "registration";
+    Database? db;
 
-    static final colId = "id";
-    static final colName = "name";
-    static final colEmail = "email";
-    static final colBirthday = "birthDate";
-    static final colPassword = "password";
     String? name,email,password,dob;
-
-
-    DBHelper._privateConstrocter();
-    static final DBHelper instance =  DBHelper._privateConstrocter();
-
-    
     
 
     Future<Database?> initDB()async{
@@ -36,7 +22,7 @@ class DBHelper{
           else{
 
               final dbPath = await getDatabasesPath();
-              final path =  join(dbPath,_dbName);
+              final path =  join(dbPath,dbName);
               db = await openDatabase(
                   path,
                   version: databaseVersion,
@@ -45,6 +31,7 @@ class DBHelper{
               return db;
           }
     }
+
 
     Future<void> onCreate(Database db, int version) async{
 
@@ -143,7 +130,7 @@ class DBHelper{
         });
     }
 
-        Future<List> checkLogin(String email)async{
+    Future<List> checkLogin(String email)async{
 
          await initDB();
 

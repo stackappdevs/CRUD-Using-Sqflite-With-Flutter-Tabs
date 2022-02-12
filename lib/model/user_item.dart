@@ -30,11 +30,11 @@ class UserData{
 }
 
 
-List userList = [];
 
 
 int index=-1;
 int userId=0;
+String? updateEmail;
 
 TextEditingController nameController = TextEditingController();
 TextEditingController emailController = TextEditingController();
